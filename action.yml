@@ -1,0 +1,41 @@
+name: 'AI Code Reviewer'
+description: 'Reviews a GitHub Pull Request using AI.'
+author: 'lee-lou2'
+
+inputs:
+  GITHUB_TOKEN:
+    description: 'The GitHub token.'
+    required: true
+  GEMINI_API_KEY:
+    description: 'The Gemini API key.'
+    required: false
+  GEMINI_MODEL:
+    description: 'The Gemini model to use.'
+    required: false
+  OPENAI_API_KEY:
+    description: 'The OpenAI API key.'
+    required: false
+  OPENAI_MODEL:
+    description: 'The OpenAI model to use.'
+    required: false
+  MAX_OUTPUT_TOKENS:
+    description: 'The maximum number of tokens to generate.'
+    required: false
+  EXCLUDE:
+    description: 'The files to exclude from the review.'
+    required: false
+  LANGUAGE:
+    description: 'The language of the response.'
+    required: false
+
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  env:
+    GITHUB_TOKEN: ${{ inputs.GITHUB_TOKEN }}
+    GEMINI_API_KEY: ${{ inputs.GEMINI_API_KEY }}
+    GEMINI_MODEL: ${{ inputs.GEMINI_MODEL }}
+    OPENAI_API_KEY: ${{ inputs.OPENAI_API_KEY }}
+    OPENAI_MODEL: ${{ inputs.OPENAI_MODEL }}
+    MAX_OUTPUT_TOKENS: ${{ inputs.MAX_OUTPUT_TOKENS }}
+    LANGUAGE: ${{ inputs.LANGUAGE }}

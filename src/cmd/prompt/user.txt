@@ -1,0 +1,12 @@
+# Requirement
+- You must strictly follow the rules of the system prompt.
+- Response language: `%s`
+
+# Review Context
+- File path to review: `%s`
+- Pull Request Requirements: `%s`
+- Pull Request Title: `%s`
+- Pull Request Description: `%s`
+- Git Diff to review
+
+%s
